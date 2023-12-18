@@ -2,7 +2,7 @@
 
 echo "Advanced System Management Tool"
 
-# Define functions for file and directory management
+#  functions for file and directory management
 list_files() { echo "Files in directory:"; ls; }
 create_file() { read -p "Enter filename to create: " filename; touch "$filename"; echo "File created: $filename"; }
 delete_file() { read -p "Enter filename to delete: " filename; rm -i "$filename"; }
@@ -14,7 +14,7 @@ view_file() { read -p "Enter the filename to view: " filename; less "$filename";
 search_files() { read -p "Enter the search pattern: " pattern; find . -name "$pattern"; }
 count_lines() { read -p "Enter the filename to count lines: " filename; wc -l "$filename"; }
 
-# Define functions for task scheduling
+# crontab and at functions for task scheduling
 schedule_cron() { read -p "Enter cron schedule (e.g., '* * * * *'): " schedule; read -p "Enter command to schedule: " command; (crontab -l 2>/dev/null; echo "$schedule $command") | crontab -; echo "Cron job scheduled"; }
 schedule_at() { read -p "Enter time for execution (e.g., 'now + 1 minute'): " time; read -p "Enter command to execute: " command; echo "$command" | at "$time"; echo "At job scheduled"; }
 
